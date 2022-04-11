@@ -8,35 +8,45 @@ import {
   RatedDoctor,
 } from '../../components';
 import {colors, fonts} from '../../utils';
+import {JSONCategoryDoctor} from '../../assets';
 
 const Doctor = () => {
   return (
     <View style={styles.page}>
       <View style={styles.content}>
-        <HomeProfiles />
-        <Text style={styles.welcome}>
-          Mau konsultasi dengan siapa hari ini?
-        </Text>
-        <View style={styles.wrapperScroll}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={styles.category}>
-              <Gap width={16} />
-              <DoctorCategory />
-              <DoctorCategory />
-              <DoctorCategory />
-              <DoctorCategory />
-              <Gap width={6} />
-            </View>
-          </ScrollView>
-        </View>
-        <Text style={styles.sectionLabel}>Top rated doctor</Text>
-        <RatedDoctor />
-        <RatedDoctor />
-        <RatedDoctor />
-        <Text style={styles.sectionLabel}>Good News</Text>
-        <NewsItem />
-        <NewsItem />
-        <NewsItem />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.wrapperSection}>
+            <Gap height={30} />
+            <HomeProfiles />
+            <Text style={styles.welcome}>
+              Mau konsultasi dengan siapa hari ini?
+            </Text>
+          </View>
+          <View style={styles.wrapperScroll}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={styles.category}>
+                <Gap width={32} />
+                {JSONCategoryDoctor.data.map(item => {
+                  return (
+                    <DoctorCategory key={item.id} category={item.category} />
+                  );
+                })}
+                <Gap width={22} />
+              </View>
+            </ScrollView>
+          </View>
+          <View style={styles.wrapperContent}>
+            <Text style={styles.sectionLabel}>Top rated doctor</Text>
+            <RatedDoctor />
+            <RatedDoctor />
+            <RatedDoctor />
+            <Text style={styles.sectionLabel}>Good News</Text>
+          </View>
+          <NewsItem />
+          <NewsItem />
+          <NewsItem />
+          <Gap height={30} />
+        </ScrollView>
       </View>
     </View>
   );
@@ -51,8 +61,6 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.white,
-    paddingVertical: 30,
-    paddingHorizontal: 16,
     flex: 1,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
@@ -77,4 +85,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 16,
   },
+  wrapperContent: {paddingHorizontal: 16},
+  wrapperSection: {paddingHorizontal: 16},
 });
