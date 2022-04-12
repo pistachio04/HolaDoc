@@ -10,14 +10,14 @@ import {
 import {colors, fonts} from '../../utils';
 import {JSONCategoryDoctor} from '../../assets';
 
-const Doctor = ({navigation}) => {
+const Doctor = ({navigation, onPress}) => {
   return (
     <View style={styles.page}>
       <View style={styles.content}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.wrapperSection}>
             <Gap height={30} />
-            <HomeProfiles />
+            <HomeProfiles onPress={() => navigation.navigate('UserProfile')} />
             <Text style={styles.welcome}>
               Mau konsultasi dengan siapa hari ini?
             </Text>
