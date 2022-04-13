@@ -6,7 +6,7 @@ import DarkProfiles from './DarkProfiles';
 
 const Header = ({title, onPress, type}) => {
   if (type === 'dark-profile') {
-    return <DarkProfiles />;
+    return <DarkProfiles onPress={onPress} />;
   }
   return (
     <View style={styles.container(type)}>

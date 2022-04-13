@@ -3,27 +3,23 @@ import {StyleSheet, View} from 'react-native';
 import {Gap, Header, List, Profile} from '../../components';
 import {colors} from '../../utils';
 
-const UserProfile = () => {
+const UserProfile = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header title="Profile" />
+      <Header title="Profile" onPress={() => navigation.goBack()} />
       <Gap height={10} />
-      <Profile />
+      <Profile name="M. Sigid Prasetyo" desc="Mobile Developer" />
       <Gap height={14} />
       <List
         name="Edit Profile"
         desc="Last update"
         type="next"
         icon="edit-profile"
+        onPress={() => navigation.navigate('UpdateProfile')}
       />
-      <List
-        name="Edit Profile"
-        desc="Last update"
-        type="next"
-        icon="language"
-      />
-      <List name="Edit Profile" desc="Last update" type="next" icon="rate" />
-      <List name="Edit Profile" desc="Last update" type="next" icon="help" />
+      <List name="Language" desc="Last update" type="next" icon="language" />
+      <List name="Give Us rate" desc="Last update" type="next" icon="rate" />
+      <List name="Help Center" desc="Last update" type="next" icon="help" />
     </View>
   );
 };

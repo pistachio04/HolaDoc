@@ -4,10 +4,10 @@ import {DummyDoctor9} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 import {Button, Gap} from '../../atoms';
 
-const DarkProfiles = () => {
+const DarkProfiles = ({onPress}) => {
   return (
     <View style={styles.container}>
-      <Button type="icon-only" icon="back-light" />
+      <Button type="icon-only" icon="back-light" onPress={onPress} />
       <View style={styles.content}>
         <Text style={styles.name}>Raani</Text>
         <Text style={styles.desc}>Dokter Anak</Text>

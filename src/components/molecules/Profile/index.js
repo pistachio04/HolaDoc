@@ -1,16 +1,21 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
-import {DummyUser} from '../../../assets';
+import {DummyUser, IconRemovePhoto} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 
-const Profiles = () => {
+const Profiles = ({name, desc, isRemove}) => {
   return (
     <View style={styles.container}>
       <View style={styles.borderProfile}>
         <Image source={DummyUser} style={styles.avatar} />
+        {isRemove && <IconRemovePhoto style={styles.removePhoto} />}
       </View>
-      <Text style={styles.name}>M. Sigid Prasetyo</Text>
-      <Text style={styles.proffesion}>Mobile Developer</Text>
+      {name && (
+        <View>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.proffesion}>{desc}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -19,6 +24,7 @@ export default Profiles;
 
 const styles = StyleSheet.create({
   avatar: {width: 110, height: 110, borderRadius: 110 / 2},
+  removePhoto: {position: 'absolute', right: 8, bottom: 8},
   borderProfile: {
     width: 130,
     height: 130,
@@ -34,11 +40,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.text.primary,
     marginTop: 16,
+    textAlign: 'center',
   },
   proffesion: {
     fontFamily: fonts.primary[400],
     fontSize: 16,
     color: colors.text.secondary,
     marginTop: 2,
+    textAlign: 'center',
   },
 });

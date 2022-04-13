@@ -10,7 +10,7 @@ const Other = () => {
       <View>
         <View style={styles.chatContent}>
           <Text style={styles.text}>
-            Ibu dokter, apakah memakan jeruk tiap hari itu buruk?
+            Adekk jatuh cinta tidak selalu menyenangkan.
           </Text>
         </View>
         <Text style={styles.date}>4.20 AM</Text>
